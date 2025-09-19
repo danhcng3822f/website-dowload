@@ -287,35 +287,20 @@
 
     <script>
         function downloadApp(platform) {
-            // Thay đổi links này thành link thật của app
+            // Link đến app thật
             const links = {
                 android: 'https://play.google.com/store/apps/details?id=com.dts.freefireth',
                 ios: 'https://apps.apple.com/us/app/free-fire-x-naruto-shippuden/id1300146617'
             };
             
-            // Thông báo và chuyển hướng
+            // Thông báo
             alert(`Đang chuyển đến ${platform === 'android' ? 'Google Play Store' : 'App Store'}...`);
             
-            // Mở link (thay bằng link thật)
-            // window.open(links[platform], '_blank');
-            
-            // Hoặc tải file trực tiếp (nếu có file APK)
-            if (platform === 'android') {
-                // window.location.href = 'path/to/your/app.apk';
-            }
+            // Chuyển hướng thẳng đến link
+            window.location.href = links[platform];
         }
 
-        // Hiệu ứng cuộn mượt
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Thống kê số lượt tải (demo)
+        // Cập nhật lượt tải (demo)
         function updateDownloadCount() {
             const countElement = document.querySelector('.stat-number');
             let count = parseInt(countElement.textContent.replace(/\D/g, ''));
