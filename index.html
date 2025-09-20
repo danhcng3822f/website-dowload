@@ -213,6 +213,14 @@
                 </div>
             </a>
             
+            <a href="#" class="download-btn" onclick="downloadApp('apk')" style="background: #ff6b35; color: white;">
+                <span class="icon">📦</span>
+                <div>
+                    <div>Tải APK trực tiếp</div>
+                    <small>MediaFire • MT Manager</small>
+                </div>
+            </a>
+            
             <a href="#" class="download-btn" onclick="downloadApp('ios')">
                 <span class="icon">🍎</span>
                 <div>
@@ -277,6 +285,16 @@
                 QR CODE<br>
                 (Thêm mã QR thật ở đây)
             </div>
+            
+            <div style="margin-top: 20px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; backdrop-filter: blur(10px);">
+                <h4 style="color: #ffd700; margin-bottom: 10px;">⚠️ Lưu ý khi cài APK:</h4>
+                <p style="font-size: 0.95em; line-height: 1.5;">
+                    • Bật "Cài đặt từ nguồn không xác định" trong Settings<br>
+                    • Kiểm tra file APK trước khi cài đặt<br>
+                    • Chỉ tải từ nguồn đáng tin cậy<br>
+                    • MT Manager giúp quản lý file hiệu quả
+                </p>
+            </div>
         </div>
 
         <div class="footer">
@@ -290,14 +308,23 @@
             // Link đến app thật
             const links = {
                 android: 'https://play.google.com/store/apps/details?id=com.dts.freefireth',
-                ios: 'https://apps.apple.com/us/app/free-fire-x-naruto-shippuden/id1300146617'
+                ios: 'https://apps.apple.com/us/app/free-fire-x-naruto-shippuden/id1300146617',
+                apk: 'https://www.mediafire.com/file/p7xgltk88x9zz1l/MT_Manager_2.18.4_apkcombo.com.apk/file?dkey=xsyncj4cddb&r=1460'
             };
             
-            // Thông báo
-            alert(`Bấm Ok để chuyển trang ${platform === 'android' ? 'Google Play Store' : 'App Store'}...`);
-            
-            // Chuyển hướng thẳng đến link
-            window.location.href = links[platform];
+            if (platform === 'apk') {
+                // Thông báo hướng dẫn cho APK
+                alert(`📱 Hướng dẫn tải APK:\n\n1. Click OK để mở MediaFire\n2. Chờ 5 giây, click "Download"\n3. Sau khi tải xong:\n   • Bật "Unknown Sources" trong Settings\n   • Cài đặt file APK\n\n⚠️ Chỉ tải từ nguồn tin cậy!`);
+                
+                // Mở MediaFire trong tab mới
+                window.open(links.apk, '_blank');
+            } else {
+                // Thông báo cho Play Store/App Store
+                alert(`Bấm Ok để chuyển trang ${platform === 'android' ? 'Google Play Store' : 'App Store'}...`);
+                
+                // Chuyển hướng thẳng đến link
+                window.location.href = links[platform];
+            }
         }
 
         // Cập nhật lượt tải (demo)
