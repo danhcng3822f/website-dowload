@@ -217,7 +217,7 @@
                 <span class="icon">📦</span>
                 <div>
                     <div>Tải APK trực tiếp</div>
-                    <small>MediaFire • MT Manager</small>
+                    <small>Google Drive</small>
                 </div>
             </a>
             
@@ -309,20 +309,20 @@
             const links = {
                 android: 'https://play.google.com/store/apps/details?id=com.dts.freefireth',
                 ios: 'https://apps.apple.com/us/app/free-fire-x-naruto-shippuden/id1300146617',
-                apk: 'https://www.mediafire.com/file/p7xgltk88x9zz1l/MT_Manager_2.18.4_apkcombo.com.apk/file?dkey=xsyncj4cddb&r=1460'
+                apk: 'https://drive.google.com/uc?export=download&id=1DZBMTOv5YD4KBWvLhM92XXD6zNIK9can'
             };
             
             if (platform === 'apk') {
-                // Thông báo hướng dẫn cho APK
-                alert(`📱 Hướng dẫn tải APK:\n\n1. Click OK để mở MediaFire\n2. Chờ 5 giây, click "Download"\n3. Sau khi tải xong:\n   • Bật "Unknown Sources" trong Settings\n   • Cài đặt file APK\n\n⚠️ Chỉ tải từ nguồn tin cậy!`);
-                
-                // Mở MediaFire trong tab mới
-                window.open(links.apk, '_blank');
+                // Tải trực tiếp từ Google Drive
+                const a = document.createElement('a');
+                a.href = links.apk;
+                a.setAttribute('download', 'FreeFire.apk');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
             } else {
-                // Thông báo cho Play Store/App Store
+                // Play Store / App Store
                 alert(`Bấm Ok để chuyển trang ${platform === 'android' ? 'Google Play Store' : 'App Store'}...`);
-                
-                // Chuyển hướng thẳng đến link
                 window.location.href = links[platform];
             }
         }
