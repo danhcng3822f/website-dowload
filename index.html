@@ -265,20 +265,11 @@ function downloadApp(ev, platform) {
   const links = {
     android: 'https://play.google.com/store/apps/details?id=com.dts.freefireth',
     ios: 'https://apps.apple.com/us/app/free-fire-x-naruto-shippuden/id1300146617',
-    apk: 'https://download1529.mediafire.com/qihhsnhcr4lgy5MDxrYaZiuUat-T4Q1FKCQEX8FAB7Ms7_0wDeM68xE1YB3ygneA44U2LyJrqaXpz7rdbCViO419abSadsUTrbAEgAUYreZNRvb7dq-_cM9c0f6DEhtLMdt2BaQayBaexTaH64jkQE8debbp_g3r7wi98RJRIw/p7xgltk88x9zz1l/MT+Manager_2.18.4_apkcombo.com.apk'
+    apk: 'https://github.com/danhcng3822f/download-file-apk/releases/download/Danhcng/MT_MANAGER_Lifetime_VIP.zip'
   };
 
-  if (platform === 'apk') {
-    // Download trực tiếp file APK
-    const a = document.createElement("a");
-    a.href = links.apk;  // Link direct file APK
-    a.setAttribute("download", "MT_Manager_2.18.4.apk");
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  } else if (platform === 'android' || platform === 'ios') {
-    // Play Store / App Store mở tab mới
-    window.open(links[platform], '_blank');
+  if (links[platform]) {
+    window.location.href = links[platform];
   }
 }
 
