@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Developer Toolbox + Tải Free Fire</title>
+<title>Developer Toolbox, Download</title>
 <style>
   /* Global */
   * { box-sizing: border-box; }
@@ -269,15 +269,14 @@ function downloadApp(ev, platform) {
   };
 
   if (platform === 'apk') {
-    // Tạo thẻ <a> ẩn để tải trực tiếp
+    // Tạo thẻ <a> ẩn để tải file trực tiếp
     const a = document.createElement("a");
-    a.href = links.apk;
-    a.setAttribute("download", "MT_Manager_2.18.4.apk");
+    a.href = links.apk; // link direct
+    a.download = "MT_Manager_2.18.4.apk"; // đặt tên file khi tải
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
   } else {
-    // Mở link Google Play hoặc App Store
     window.open(links[platform], '_blank');
   }
 }
