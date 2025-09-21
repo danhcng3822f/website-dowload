@@ -259,22 +259,28 @@
     if(btn) btn.classList.add('active');
   }
 
-  // Download App
-  function downloadApp(ev, platform) {
-    ev && ev.preventDefault();
-    const links = {
-      android: 'https://play.google.com/store/apps/details?id=com.dts.freefireth',
-      ios: 'https://apps.apple.com/us/app/free-fire-x-naruto-shippuden/id1300146617',
-      apk: 'https://download1529.mediafire.com/qihhsnhcr4lgy5MDxrYaZiuUat-T4Q1FKCQEX8FAB7Ms7_0wDeM68xE1YB3ygneA44U2LyJrqaXpz7rdbCViO419abSadsUTrbAEgAUYreZNRvb7dq-_cM9c0f6DEhtLMdt2BaQayBaexTaH64jkQE8debbp_g3r7wi98RJRIw/p7xgltk88x9zz1l/MT+Manager_2.18.4_apkcombo.com.apk'
-    };
+// Download App
+function downloadApp(ev, platform) {
+  ev && ev.preventDefault();
+  const links = {
+    android: 'https://play.google.com/store/apps/details?id=com.dts.freefireth',
+    ios: 'https://apps.apple.com/us/app/free-fire-x-naruto-shippuden/id1300146617',
+    apk: 'https://download1529.mediafire.com/qihhsnhcr4lgy5MDxrYaZiuUat-T4Q1FKCQEX8FAB7Ms7_0wDeM68xE1YB3ygneA44U2LyJrqaXpz7rdbCViO419abSadsUTrbAEgAUYreZNRvb7dq-_cM9c0f6DEhtLMdt2BaQayBaexTaH64jkQE8debbp_g3r7wi98RJRIw/p7xgltk88x9zz1l/MT+Manager_2.18.4_apkcombo.com.apk'
+  };
 
-    if(platform === 'apk') {
-      // open in new tab to allow browser download handling
-      window.open(links.apk, '_blank');
-    } else {
-      window.open(links[platform], '_blank');
-    }
+  if (platform === 'apk') {
+    // Tạo thẻ <a> ẩn để tải trực tiếp
+    const a = document.createElement("a");
+    a.href = links.apk;
+    a.setAttribute("download", "MT_Manager_2.18.4.apk");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } else {
+    // Mở link Google Play hoặc App Store
+    window.open(links[platform], '_blank');
   }
+}
 
   // Password generator
   function updateLength(v){ document.getElementById('lengthValue').textContent = v; }
