@@ -137,7 +137,7 @@
       <button class="nav-btn active" onclick="showTool('password', this)">🔐 Password Generator</button>
       <button class="nav-btn" onclick="showTool('base64', this)">🔄 Base64 Encoder/Decoder</button>
       <button class="nav-btn" onclick="showTool('json', this)">📋 JSON Formatter</button>
-      <button class="nav-btn" onclick="showTool('appLanding', this)">⬇️ Tải Free Fire</button>
+      <button class="nav-btn" onclick="showTool('appLanding', this)">📂 Download</button>
     </div>
 
     <!-- Password Tool -->
@@ -227,8 +227,8 @@
     <div class="tool-container" id="appLanding-tool">
       <div class="app-icon">🕹️</div>
       <div class="tool-header">
-        <h2 class="app-name">Web Download</h2>
-        <p class="app-description">Tải Free Fire</p>
+        <h2 class="app-name">Download</h2>
+        <p class="app-description">Tải Free Fire và Mt Manager</p>
       </div>
       <div class="download-section">
         <a href="#" class="download-btn small" onclick="downloadApp(event,'android')">
@@ -238,13 +238,13 @@
           <span class="icon">📁</span><div style="line-height:1">Tải APK trực tiếp</div>
         </a>
         <a href="#" class="download-btn small" onclick="downloadApp(event,'ios')">
-          <span class="icon">🍏</span><div style="line-height:1">Tải iOS</div>
+          <span class="icon">🍎</span><div style="line-height:1">Tải iOS</div>
         </a>
       </div>
     </div>
 
     <div class="footer">
-      <p>© 2025 Developer Toolbox. Made with ❤️ for developers</p>
+      <p>© 2025 Developer. Thanks Claude, ChatGPT and Perplexity</p>
     </div>
   </div>
 
@@ -268,18 +268,8 @@ function downloadApp(ev, platform) {
     apk: 'https://github.com/danhcng3822f/download-file-apk/releases/download/Danhcng/MT_MANAGER_Lifetime_VIP.zip'
   };
 
-if (platform === 'apk') {
-                // Tải trực tiếp từ Google Drive
-                const a = document.createElement('a');
-                a.href = links.apk;
-                a.setAttribute('download', 'FreeFire.apk');
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            } else {
-                // Play Store / App Store
-                alert(`Bấm Ok để chuyển trang ${platform === 'android' ? 'Google Play Store' : 'App Store'}...`);
-                window.location.href = links[platform];
+  if (links[platform]) {
+    window.location.href = links[platform];
   }
 }
 
