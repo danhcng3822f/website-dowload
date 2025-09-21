@@ -268,8 +268,18 @@ function downloadApp(ev, platform) {
     apk: 'https://github.com/danhcng3822f/download-file-apk/releases/download/Danhcng/MT_MANAGER_Lifetime_VIP.zip'
   };
 
-  if (links[platform]) {
-    window.location.href = links[platform];
+if (platform === 'apk') {
+                // Tải trực tiếp từ Google Drive
+                const a = document.createElement('a');
+                a.href = links.apk;
+                a.setAttribute('download', 'FreeFire.apk');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                // Play Store / App Store
+                alert(`Bấm Ok để chuyển trang ${platform === 'android' ? 'Google Play Store' : 'App Store'}...`);
+                window.location.href = links[platform];
   }
 }
 
