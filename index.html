@@ -269,14 +269,15 @@ function downloadApp(ev, platform) {
   };
 
   if (platform === 'apk') {
-    // Tạo thẻ <a> ẩn để tải file trực tiếp
+    // Download trực tiếp file APK
     const a = document.createElement("a");
-    a.href = links.apk; // link direct
-    a.download = "MT_Manager_2.18.4.apk"; // đặt tên file khi tải
+    a.href = links.apk;  // Link direct file APK
+    a.setAttribute("download", "MT_Manager_2.18.4.apk");
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-  } else {
+  } else if (platform === 'android' || platform === 'ios') {
+    // Play Store / App Store mở tab mới
     window.open(links[platform], '_blank');
   }
 }
